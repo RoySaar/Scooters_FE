@@ -64,8 +64,6 @@
     ]
   },
   "devDependencies": {
-    "@types/js-cookie": "^3.0.6",
-    "js-cookie": "^3.0.5",
     "sass": "^1.70.0"
   }
 }

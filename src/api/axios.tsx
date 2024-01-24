@@ -1,6 +1,5 @@
 import React, {createContext, PropsWithChildren, useContext, useEffect, useMemo, useState} from 'react';
 import axios from 'axios';
-import Cookies from 'js-cookie';
 import {noop} from "lodash";
 
 // Create an Axios instance
@@ -11,7 +10,7 @@ const axiosInstance = axios.create({
 
 // Add request interceptor
 axiosInstance.interceptors.request.use(config => {
-    const token = Cookies.get('userToken'); // Replace 'userToken' with your cookie name
+    const token = localStorage.getItem('userToken');
 
     if (token) {
         config.headers.Authorization = `Bearer ${token}`;
@@ -28,7 +27,7 @@ export const AxiosProvider = ({children}: PropsWithChildren) => {
     const [isReady, setIsReady]  = useState(false);
 
     useEffect(() => {
-        const token = Cookies.get('userToken');
+        const token = localStorage.getItem('userToken');
         console.log({token})
         setIsAuthenticated(!!token);
         setIsReady(true);
