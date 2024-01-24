@@ -1,18 +1,41 @@
 {
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false
+  },
   "name": "scooter-admin-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@chakra-ui/react": "^2.8.2",
+    "@node-rs/argon2": "^1.7.2",
+    "@react-google-maps/api": "^2.19.2",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/google-map-react": "^2.1.10",
     "@types/jest": "^27.5.2",
+    "@types/lodash": "^4.14.202",
     "@types/node": "^16.18.72",
     "@types/react": "^18.2.48",
     "@types/react-dom": "^18.2.18",
+    "@types/react-router-dom": "^5.3.3",
+    "@types/react-table": "^7.7.19",
+    "axios": "^1.6.5",
+    "bcryptjs": "^2.4.3",
+    "clsx": "^2.1.0",
+    "google-map-react": "^2.2.1",
+    "lodash": "^4.17.21",
+    "mapbox": "^1.0.0-beta10",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-geocode": "^1.0.0-alpha.1",
+    "react-router-dom": "^6.21.3",
     "react-scripts": "5.0.1",
+    "react-table": "^7.8.0",
+    "react-toastify": "^10.0.4",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
   },
@@ -39,5 +62,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/js-cookie": "^3.0.6",
+    "js-cookie": "^3.0.5",
+    "sass": "^1.70.0"
   }
 }

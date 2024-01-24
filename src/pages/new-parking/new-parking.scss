@@ -1,0 +1,32 @@
+.sa-new-parking {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+
+  .sa-new-parking-form {
+    align-items: flex-start;
+    height: 100%;
+    padding-bottom: 20px;
+
+    button {
+      align-self: center;
+      justify-self: flex-end;
+      margin-top: 140px;
+    }
+  }
+
+  .sa-marker {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    border-radius: 50%;
+    background: lightblue;
+    border: 1px solid gray;
+    height: 16px;
+    width: 16px;
+  }
+}

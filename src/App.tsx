@@ -1,26 +1,69 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import {LoginPage} from "./pages/login-page/login-page";
+import {useIsAuthenticated} from "./hooks/useIsAuthenticated";
+import {HomePage} from "./pages/home-page/home-page";
+import {Scooters} from "./pages/scooters/scooters";
+import {Users} from './pages/users/users';
+import {NewParking} from "./pages/new-parking/new-parking";
+import {Parking} from './pages/parking/parking';
+import {ToastContainer} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+import {Register} from "./pages/register/register";
+import {PrivateRoute} from "./components/private-route";
+import {useAxios} from "./api/axios";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+    const {isAuthenticated} = useIsAuthenticated()
+    const {isReady} = useAxios();
+
+    if (!isReady) {
+        return <>Loading...</>
+    }
+
+    console.log({isAuthenticated})
+    return (
+        <Router>
+            <Routes>
+                <Route
+                    path="/scooters"
+                    element={
+                        <PrivateRoute isAuthenticated={isAuthenticated}>
+                            <Scooters/>
+                        </PrivateRoute>
+                    }
+                />
+                <Route
+                    path="/users"
+                    element={
+                        <PrivateRoute isAuthenticated={isAuthenticated}>
+                            <Users/>
+                        </PrivateRoute>
+                    }
+                />
+                <Route
+                    path="/new-parking"
+                    element={
+                        <PrivateRoute isAuthenticated={isAuthenticated}>
+                            <NewParking/>
+                        </PrivateRoute>
+                    }
+                />
+                <Route
+                    path="/parking"
+                    element={
+                        <PrivateRoute isAuthenticated={isAuthenticated}>
+                            <Parking/>
+                        </PrivateRoute>
+                    }
+                />
+                <Route path="/login" element={<LoginPage/>}/>
+                <Route path="/register" element={<Register/>}/>
+            </Routes>
+            <ToastContainer/>
+        </Router>
+    );
+};
 
 export default App;

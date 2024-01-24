@@ -1,0 +1,11 @@
+.sa-scooters-filters {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  select {
+    border-radius: 6px;
+    padding: 4px;
+  }
+}

@@ -1,0 +1,13 @@
+.sa-login-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  height: 100vh;
+  width: 100%;
+
+  .sa-login-form {
+    gap: 12px;
+  }
+}

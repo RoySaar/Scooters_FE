@@ -1,0 +1,14 @@
+.sa-table {
+  tr[role="row"] {
+    &:nth-of-type(even) {
+      background: lavender;
+    }
+  }
+
+  td[role="cell"] {
+    min-width: 40px;
+    border: 1px solid lightgrey;
+    padding: 8px;
+    border-radius: 6px;
+  }
+}
