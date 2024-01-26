@@ -3,7 +3,6 @@ import './App.scss';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import {LoginPage} from "./pages/login-page/login-page";
 import {useIsAuthenticated} from "./hooks/useIsAuthenticated";
-import {HomePage} from "./pages/home-page/home-page";
 import {Scooters} from "./pages/scooters/scooters";
 import {Users} from './pages/users/users';
 import {NewParking} from "./pages/new-parking/new-parking";
@@ -22,7 +21,6 @@ const App = () => {
         return <>Loading...</>
     }
 
-    console.log({isAuthenticated})
     return (
         <Router>
             <Routes>

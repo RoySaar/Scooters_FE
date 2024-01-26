@@ -4,7 +4,7 @@ import {noop} from "lodash";
 
 // Create an Axios instance
 const axiosInstance = axios.create({
-    baseURL: 'http://localhost:3000',
+    baseURL: process.env.API_URL,
     // other global config
 });
 
