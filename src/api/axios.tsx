@@ -2,13 +2,12 @@ import React, {createContext, PropsWithChildren, useContext, useEffect, useMemo,
 import axios from 'axios';
 import {noop} from "lodash";
 
-// Create an Axios instance
+const BASE_URL = process.env.REACT_APP_API_URL;
+
 const axiosInstance = axios.create({
-    baseURL: process.env.API_URL,
-    // other global config
+    baseURL: BASE_URL,
 });
 
-// Add request interceptor
 axiosInstance.interceptors.request.use(config => {
     const token = localStorage.getItem('userToken');
 
@@ -18,7 +17,6 @@ axiosInstance.interceptors.request.use(config => {
     return config;
 });
 
-// Create context
 export const AxiosContext = createContext({
     axiosInstance,
     isAuthenticated: false,
@@ -26,7 +24,7 @@ export const AxiosContext = createContext({
     isReady: false
 });
 export const useAxios = () => useContext(AxiosContext);
-// Provider component
+
 export const AxiosProvider = ({children}: PropsWithChildren) => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [isReady, setIsReady] = useState(false);
