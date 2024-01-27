@@ -19,21 +19,31 @@ axiosInstance.interceptors.request.use(config => {
 });
 
 // Create context
-export const AxiosContext = createContext({axiosInstance, isAuthenticated: false, setIsAuthenticated: noop, isReady: false});
+export const AxiosContext = createContext({
+    axiosInstance,
+    isAuthenticated: false,
+    setIsAuthenticated: noop,
+    isReady: false
+});
 export const useAxios = () => useContext(AxiosContext);
 // Provider component
 export const AxiosProvider = ({children}: PropsWithChildren) => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
-    const [isReady, setIsReady]  = useState(false);
+    const [isReady, setIsReady] = useState(false);
 
     useEffect(() => {
         const token = localStorage.getItem('userToken');
         console.log({token})
         setIsAuthenticated(!!token);
         setIsReady(true);
-    },[]);
+    }, []);
 
-    const value = useMemo(() => ({axiosInstance, isAuthenticated, setIsAuthenticated,isReady}), [axiosInstance, isAuthenticated, setIsAuthenticated,isReady ])
+    const value = useMemo(() => ({
+        axiosInstance,
+        isAuthenticated,
+        setIsAuthenticated,
+        isReady
+    }), [isAuthenticated, setIsAuthenticated, isReady])
 
     return (
         <AxiosContext.Provider value={value}>

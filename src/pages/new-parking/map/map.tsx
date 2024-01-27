@@ -1,4 +1,4 @@
-import {GoogleMap, MarkerF, useJsApiLoader} from "@react-google-maps/api";
+import {GoogleMap, useJsApiLoader} from "@react-google-maps/api";
 import {useCallback, useState} from "react";
 import {MapProps} from "./map.typings";
 import {isEmpty} from "lodash";
