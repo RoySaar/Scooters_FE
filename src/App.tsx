@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.scss';
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import {BrowserRouter as Router, Navigate, Route, Routes} from 'react-router-dom';
 import {LoginPage} from "./pages/login-page/login-page";
 import {useIsAuthenticated} from "./hooks/useIsAuthenticated";
 import {Scooters} from "./pages/scooters/scooters";
@@ -24,6 +24,9 @@ const App = () => {
     return (
         <Router>
             <Routes>
+                <Route path="/"
+                       element={<Navigate to="/parking" replace/>}
+                />
                 <Route
                     path="/scooters"
                     element={
